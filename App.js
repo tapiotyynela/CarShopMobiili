@@ -1,21 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { StyleSheet, Text, View, Button, Image, Alert, TextInput, FlatList} from 'react-native';
+import {createStackNavigator,  createAppContainer} from 'react-navigation';
+import HomeScreen from './HomeScreen';
+import Yhteystiedot from './Yhteystiedot';
+import Kaupantuotto from './Kaupantuotto';
 export default class App extends React.Component {
+// myapp
   render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
+    
+    return( <MyApp/>
+      );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const MainNavigator = createStackNavigator({
+  Home: {screen: HomeScreen},
+  Yhteystiedot: {screen: Yhteystiedot},
+  Kaupantuotto: {screen: Kaupantuotto}
 });
+const MyApp = createAppContainer(MainNavigator);
